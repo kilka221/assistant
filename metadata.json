@@ -1,0 +1,7 @@
+{
+  "name": "PSYassistant",
+  "description": "Advanced AI Psychotherapy Assistant with Narrative Identity Tracking and Dynamic Clinical Hypotheses using Gemini 3 Pro.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
