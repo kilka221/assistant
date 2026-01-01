@@ -158,7 +158,7 @@ export class GeminiService {
         const completion = await this.client.chat.completions.create({
             model: MODEL_NAME,
             messages: [{ role: "user", content: prompt }],
-            temperature: 0.5
+            temperature: 1.0
         });
         return completion.choices[0].message.content || baseInfo;
     } catch (e) {
