@@ -129,7 +129,8 @@ const App: React.FC = () => {
     if (!geminiRef.current || !currentUser) return;
 
     // --- SUBSCRIPTION CHECK ---
-    const FREE_LIMIT = 5;
+    // ИЗМЕНЕНИЕ: Лимит увеличен до 1 000 000 (практически безлимит)
+    const FREE_LIMIT = 1000000; 
     if (!profile.isSubscribed && profile.messageCount >= FREE_LIMIT) {
         setSubscriptionModalOpen(true);
         return;
@@ -290,11 +291,7 @@ const App: React.FC = () => {
                 <Logo className="text-stone-200" size={28} />
                 <div className="flex flex-col">
                     <span className="font-serif font-bold text-stone-200 text-lg tracking-tight">PSYassistant</span>
-                    {!profile.isSubscribed && (
-                        <span className="text-[10px] text-stone-500 uppercase tracking-wide">
-                            {Math.max(0, 5 - profile.messageCount)} {T.sidebar.freeLeft}
-                        </span>
-                    )}
+                    {/* Badge removed for cleaner UI */}
                 </div>
             </div>
             <div className="flex gap-2">
@@ -311,13 +308,7 @@ const App: React.FC = () => {
                 onSendMessage={handleSendMessage} 
             />
             
-            {!profile.isSubscribed && (
-                <div className="hidden md:block absolute top-6 right-8 pointer-events-none">
-                     <span className="bg-stone-800/80 backdrop-blur px-3 py-1.5 rounded-full border border-stone-700/50 text-[10px] font-medium text-stone-400 uppercase tracking-widest">
-                        {Math.max(0, 5 - profile.messageCount)} {T.sidebar.freeLeft}
-                     </span>
-                </div>
-            )}
+            {/* Floating badge removed for cleaner UI */}
          </div>
       </div>
 
@@ -350,5 +341,3 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-export default App;
